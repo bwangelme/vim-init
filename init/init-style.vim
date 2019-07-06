@@ -13,9 +13,6 @@
 " 显示设置
 "----------------------------------------------------------------------
 
-" 总是显示状态栏
-set laststatus=2
-
 " 总是显示行号
 set number
 
@@ -38,32 +35,69 @@ set showcmd
 " 水平切割窗口时，默认在右边显示新窗口
 set splitright
 
+" 突出显示当前列
+set cursorcolumn
+" 突出显示当前行
+set cursorline
+" 设置80行提示线
+set colorcolumn=80
+
 
 "----------------------------------------------------------------------
 " 颜色主题：色彩文件位于 colors 目录中
 "----------------------------------------------------------------------
 
 " 设置黑色背景
-set background=dark
+set background=light
 
 " 允许 256 色
 set t_Co=256
 
 " 设置颜色主题，会在所有 runtimepaths 的 colors 目录寻找同名配置
-color desert256
+color solarized
 
 
 "----------------------------------------------------------------------
 " 状态栏设置
 "----------------------------------------------------------------------
-set statusline=                                 " 清空状态了
-set statusline+=\ %F                            " 文件名
-set statusline+=\ [%1*%M%*%n%R%H]               " buffer 编号和状态
-set statusline+=%=                              " 向右对齐
-set statusline+=\ %y                            " 文件类型
+" 总是显示状态栏
+set laststatus=2
 
-" 最右边显示文件编码和行号等信息，并且固定在一个 group 中，优先占位
-set statusline+=\ %0(%{&fileformat}\ [%{(&fenc==\"\"?&enc:&fenc).(&bomb?\",BOM\":\"\")}]\ %v:%l/%L%)
+" statusline说明
+"
+" %{}: {}中可以存放一个表达式
+" \ : 空格
+
+set statusline=%f
+" %<: 如果内容被截断，前面用<填充
+" %f: buffer中的文件路径
+set statusline+=%<
+" %m: 修改标记[+]，如果'modifiable'选项关闭的话是[-]
+" %r: 只读标记[RO]
+" %w: 预览窗口标记[Preview]
+" %h: 帮助Buffer的标记[help]
+" %y: Buffer中文件的类型，例如[vim]
+set statusline+=\ %m%r%w%h%y
+" %l: 当前行号 %c: 当前列号，特殊字符算作一列，中文算作三列
+set statusline+=\ %(%l,%c%)
+" %P: 文档阅读百分比 %L: 文档总行数
+set statusline+=\ %P-%L
+" %n: Buffer序号
+set statusline+=\ \<%n\>
+" %B: 光标下字符的十六进制编码值
+set statusline+=\ %B
+
+" %=: 左右对齐项目的分割点
+set statusline+=\ %=
+
+"  (&fenc==\"\")?&enc:&fenc: fileencoding表示Buffer中打开的文件编码，encoding表
+" 示vim使用的文件编码，默认显示fileencoding
+"  (&bomb?\",BOM\":\"\"): 检查当前文件中是否含有BOM标记
+"  > BOM标记是一个二进制标记符，用来表示字节流的编码标号或字节序,参考
+"  > https://zh.wikipedia.org/wiki/%E4%BD%8D%E5%85%83%E7%B5%84%E9%A0%86%E5%BA%8F%E8%A8%98%E8%99%9F
+set statusline+=[%{(&fenc==\"\")?&enc:&fenc}%{(&bomb?\",BOM\":\"\")}]
+" %{fugitive#statusline()}: 利用tpope/vim-fugitive插件获取当前Git分支
+set statusline+=\ %{(exists('g:loaded_fugitive')?fugitive#statusline():'')}
 
 
 "----------------------------------------------------------------------

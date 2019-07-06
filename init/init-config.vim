@@ -19,6 +19,26 @@ elseif &ttimeoutlen > 80 || &ttimeoutlen <= 0
 endif
 
 
+" 关闭时记住打开Buffer的信息
+set viminfo^=%
+
+" 在上下移动光标时，光标的上方或下方至少会保留显示的行数
+set scrolloff=7
+
+" 正则表达式打开magic
+set magic
+
+" Configure backspace so it acts as it should act
+set backspace=eol,start,indent
+" 转折换行的配置
+set whichwrap+=<,>
+
+" 代码折叠
+set foldenable
+set foldmethod=indent
+set foldlevel=99
+
+
 "----------------------------------------------------------------------
 " 终端下允许 ALT，详见：http://www.skywind.me/blog/archives/2021
 " 记得设置 ttimeout （见 init-basic.vim） 和 ttimeoutlen （上面）
