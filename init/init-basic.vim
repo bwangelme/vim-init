@@ -71,6 +71,9 @@ if has('multi_byte')
 
 	" 打开文件时自动尝试下面顺序的编码
 	set fileencodings=ucs-bom,utf-8,gbk,gb18030,big5,euc-jp,latin1
+
+	" 下面这句只影响普通模式 (非图形界面) 下的 Vim
+	set termencoding=utf-8
 endif
 
 
@@ -104,6 +107,8 @@ set matchtime=2
 " 显示最后一行
 set display=lastline
 
+" ex模式下补全的方式
+set wildmode=list:longest
 " 允许下方显示目录
 set wildmenu
 
@@ -167,6 +172,10 @@ set wildignore+=*.ppt,*.pptx,*.docx,*.xlt,*.xls,*.xlsx,*.odt,*.wps
 set wildignore+=*.msi,*.crx,*.deb,*.vfd,*.apk,*.ipa,*.bin,*.msu
 set wildignore+=*.gba,*.sfc,*.078,*.nds,*.smd,*.smc
 set wildignore+=*.linux2,*.win32,*.darwin,*.freebsd,*.linux,*.android
-
-
-
+set wildignore+=*vim/backups*
+set wildignore+=*sass-cache*
+set wildignore+=vendor/rails/**
+set wildignore+=vendor/cache/**
+set wildignore+=*.gem
+set wildignore+=log/**
+set wildignore+=tmp/**

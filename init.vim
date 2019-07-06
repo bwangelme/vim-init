@@ -40,14 +40,20 @@ LoadScript init/init-config.vim
 " 设定 tabsize
 LoadScript init/init-tabsize.vim
 
-" 插件加载
-LoadScript init/init-plugins.vim
-
-" 界面样式
-LoadScript init/init-style.vim
-
 " 自定义按键
 LoadScript init/init-keymaps.vim
 
+" 插件加载
+" LoadScript init/init-plugins.vim
+call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 
+LoadScript init/plugins/init-complete.vim
+LoadScript init/plugins/init-edit.vim
+LoadScript init/plugins/init-feature.vim
+LoadScript init/plugins/init-navigation.vim
+LoadScript init/plugins/init-show.vim
 
+call plug#end()
+
+" 界面样式
+LoadScript init/init-style.vim

@@ -2,38 +2,62 @@
 "
 " init-keymaps.vim - 按键设置，按你喜欢更改
 "
-"   - 快速移动
-"   - 标签切换
-"   - 窗口切换
-"   - 终端支持
-"   - 编译运行
-"   - 符号搜索
-"
 " Created by skywind on 2018/05/30
 " Last Modified: 2018/05/30 17:59:31
 "
 "======================================================================
 " vim: set ts=4 sw=4 tw=78 noet :
 
+" 修改leader按键
+let mapleader = ' '
+let g:mapleader = ' '
+
 
 "----------------------------------------------------------------------
-" INSERT 模式下使用 EMACS 键位
+" 普通模式的按键映射
+"----------------------------------------------------------------------
+noremap H ^
+noremap L $
+" 交换 ' `, 使得可以快速使用'跳到marked位置
+nnoremap ' `
+nnoremap ` '
+" 将U映射成<C-r>
+nnoremap U <C-r>
+" 文件折叠
+nmap - zc
+nmap + zo
+
+
+"----------------------------------------------------------------------
+" Visual 模式的按键映射
+"----------------------------------------------------------------------
+" 调整缩进后自动选中，方便再次操作
+vnoremap < <gv
+vnoremap > >gv
+
+
+"----------------------------------------------------------------------
+" 分屏窗口移动, Smart way to move between windows
+"----------------------------------------------------------------------
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
+nnoremap <C-v> <C-w>v
+nnoremap <C-c> <C-w>c
+nnoremap <C-s> <C-w>s
+
+
+"----------------------------------------------------------------------
+" INSERT 模式下按键映射
 "----------------------------------------------------------------------
 inoremap <c-a> <home>
 inoremap <c-e> <end>
 inoremap <c-d> <del>
 inoremap <c-_> <c-k>
-
-
-"----------------------------------------------------------------------
-" 设置 CTRL+HJKL 移动光标（INSERT 模式偶尔需要移动的方便些）
-" 使用 SecureCRT/XShell 等终端软件需设置：Backspace sends delete
+" 插入模式下将小写字母转换成大写字母, I love this very much
+inoremap <C-y> <esc>gUiwea
 " 详见：http://www.skywind.me/blog/archives/2021
-"----------------------------------------------------------------------
-noremap <C-h> <left>
-noremap <C-j> <down>
-noremap <C-k> <up>
-noremap <C-l> <right>
 inoremap <C-h> <left>
 inoremap <C-j> <down>
 inoremap <C-k> <up>
@@ -41,7 +65,7 @@ inoremap <C-l> <right>
 
 
 "----------------------------------------------------------------------
-" 命令模式的快速移动
+" 命令模式的按键映射
 "----------------------------------------------------------------------
 cnoremap <c-h> <left>
 cnoremap <c-j> <down>
@@ -53,6 +77,59 @@ cnoremap <c-f> <c-d>
 cnoremap <c-b> <left>
 cnoremap <c-d> <del>
 cnoremap <c-_> <c-k>
+" ctrl-n, ctrl-p 只能搜索历史命令
+cnoremap <c-n> <down>
+cnoremap <c-p> <up>
+" 将%:h映射为%%，%:h的功能是显示当前缓冲区文件的绝对路径
+cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
+
+
+"----------------------------------------------------------------------
+" 搜索设置
+"----------------------------------------------------------------------
+function! VisualSearch(direction) range
+    let l:saved_reg = @"
+    execute "normal! vgvy"
+
+    let l:pattern = escape(@", '\\/.*$^~[]')
+    let l:pattern = substitute(l:pattern, "\n$", "", "")
+
+    if a:direction == 'b'
+        execute "normal ?" . l:pattern . "^M"
+    elseif a:direction == 'gv'
+        call CmdLine("vimgrep " . '/'. l:pattern . '/' . ' **/*.')
+    elseif a:direction == 'f'
+        execute "normal /" . l:pattern . "^M"
+    endif
+
+    let @/ = l:pattern
+    let @" = l:saved_reg
+endfunction
+
+" 进入搜索Use sane regexes"
+nnoremap / /\m
+vnoremap / /\m
+" 让搜索内容始终在屏幕中间
+nnoremap <silent> n n
+nnoremap <silent> N N
+nnoremap <silent> * #Nzz
+nnoremap <silent> # *Nzz
+nnoremap <silent> g* g*zz
+
+" 在 visual mode 按下 * 或 # 让搜索内容在屏幕中间
+vnoremap <silent> * :call VisualSearch('f')<CR>
+vnoremap <silent> # :call VisualSearch('b')<CR>
+
+
+"----------------------------------------------------------------------
+" 复制选中区到系统剪切板中
+"----------------------------------------------------------------------
+if has('clipboard')
+	vnoremap y "+y
+	map Y "+y$
+else
+	map Y y$
+endif
 
 
 "----------------------------------------------------------------------
@@ -134,11 +211,12 @@ noremap <silent> <leader>bp :bp<cr>
 " 其实还可以用原生的 CTRL+PageUp, CTRL+PageDown 来切换标签
 "----------------------------------------------------------------------
 
-noremap <silent> <leader>tc :tabnew<cr>
-noremap <silent> <leader>tq :tabclose<cr>
-noremap <silent> <leader>tn :tabnext<cr>
-noremap <silent> <leader>tp :tabprev<cr>
-noremap <silent> <leader>to :tabonly<cr>
+noremap <silent> <m-t> :tabnew<cr>
+noremap <silent> <m-w> :tabclose<cr>
+" TODO: m-f, m-b 无效，需要查找原因
+noremap <silent> <m-f> :tabnext<cr>
+noremap <silent> <m-b> :tabprev<cr>
+noremap <silent> <m-0> :tabonly<cr>
 
 
 " 左移 tab
@@ -222,6 +300,17 @@ elseif has('nvim')
 endif
 
 
+"----------------------------------------------------------------------
+" 调试
+"----------------------------------------------------------------------
+" 获取当前位置作为断点
+function! GetBreakPoint()
+	let @* = expand("%").":".line(".")
+	echo @*
+endfunction
+
+nmap <leader>b :call GetBreakPoint()<CR>
+
 
 "----------------------------------------------------------------------
 " 编译运行 C/C++ 项目
@@ -237,32 +326,38 @@ let g:asyncrun_bell = 1
 " 设置 F10 打开/关闭 Quickfix 窗口
 nnoremap <F10> :call asyncrun#quickfix_toggle(6)<cr>
 
-" F9 编译 C/C++ 文件
-nnoremap <silent> <F9> :AsyncRun gcc -Wall -O2 "$(VIM_FILEPATH)" -o "$(VIM_FILEDIR)/$(VIM_FILENOEXT)" <cr>
+" F9 显示可打印字符开关
+nnoremap <F9> :set list! list?<CR>
 
-" F5 运行文件
-nnoremap <silent> <F5> :call ExecuteFile()<cr>
+" F7 运行文件
+nnoremap <silent> <F7> :call ExecuteFile()<cr>
 
-" F7 编译项目
-nnoremap <silent> <F7> :AsyncRun -cwd=<root> make <cr>
+" F6 语法开关，关闭语法可以加快大文件的展示
+nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
-" F8 运行项目
-nnoremap <silent> <F8> :AsyncRun -cwd=<root> -raw make run <cr>
+" F5 插入模式下的粘贴开关
+set pastetoggle=<F5>
 
-" F6 测试项目
-nnoremap <silent> <F6> :AsyncRun -cwd=<root> -raw make test <cr>
+" F4 换行开关
+nnoremap <F4> :set wrap! wrap?<CR>
 
-" 更新 cmake
-nnoremap <silent> <F4> :AsyncRun -cwd=<root> cmake . <cr>
+" F2 折叠开关
+function! ToggleFold()
+    if(&foldlevel == '0')
+        exec "normal! zR"
+    else
+        exec "normal! zM"
+    endif
+    echo "foldlevel:" &foldlevel
+endfunction
+nnoremap <F2> :call ToggleFold()<CR>
 
-" Windows 下支持直接打开新 cmd 窗口运行
-if has('win32') || has('win64')
-	nnoremap <silent> <F8> :AsyncRun -cwd=<root> -mode=4 make run <cr>
-endif
+" F1 设置行号
+noremap <F1> :set number!<CR>"
 
 
 "----------------------------------------------------------------------
-" F5 运行当前文件：根据文件类型判断方法，并且输出到 quickfix 窗口
+" 运行当前文件：根据文件类型判断方法，并且输出到 quickfix 窗口
 "----------------------------------------------------------------------
 function! ExecuteFile()
 	let cmd = ''
