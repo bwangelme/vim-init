@@ -50,8 +50,13 @@ call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 LoadScript init/plugins/init-complete.vim
 LoadScript init/plugins/init-edit.vim
 LoadScript init/plugins/init-feature.vim
+LoadScript init/plugins/init-positioning.vim
 LoadScript init/plugins/init-navigation.vim
 LoadScript init/plugins/init-show.vim
+LoadScript init/plugins/init-markdown.vim
+LoadScript init/plugins/init-python.vim
+LoadScript init/plugins/init-nginx.vim
+LoadScript init/plugins/init-go.vim
 
 call plug#end()
 
