@@ -2,4 +2,4 @@
 " nginx-vim-syntax
 "----------------------------------------------------------------------
 
-Plug 'bwangel23/nginx-vim-syntax'
+Plug 'bwangel23/nginx-vim-syntax', {'for': 'nginx'}

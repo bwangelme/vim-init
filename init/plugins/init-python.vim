@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------
 " python-syntax
 "----------------------------------------------------------------------
-Plug 'vim-python/python-syntax'
+Plug 'vim-python/python-syntax', {'for': 'python'}
 
 let python_highlight_all = 1
 
@@ -9,4 +9,11 @@ let python_highlight_all = 1
 "----------------------------------------------------------------------
 " vim-python-pep8-indent
 "----------------------------------------------------------------------
-Plug 'hynek/vim-python-pep8-indent'
+Plug 'hynek/vim-python-pep8-indent', {'for': 'python'}
+
+
+"----------------------------------------------------------------------
+" Python 自动补全插件, jedi-vim
+"----------------------------------------------------------------------
+" Plug 'davidhalter/jedi-vim', {'for': 'python'}
+" let g:jedi#goto_assignments_command = "-"

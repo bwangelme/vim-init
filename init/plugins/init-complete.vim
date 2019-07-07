@@ -6,9 +6,9 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 let g:UltiSnipsExpandTrigger       = "<tab>"
 " 定义存放代码片段的文件夹 .vim/UltiSnips下，使用自定义和默认的，将会的到全局，有冲突的会提示
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
+let g:UltiSnipsSnippetsDir = '~/.vim/vim-init/UltiSnips'
 " 进入对应filetype的snippets进行编辑
-" map <leader>n :UltiSnipsEdit<CR>
+map <leader>n :UltiSnipsEdit<CR>
 
 " ctrl+j/k 进行选择
 func! g:JInYCM()
@@ -44,13 +44,6 @@ au FileType php let delimitMate_matchpairs = "(:),[:],{:}"
 
 
 "----------------------------------------------------------------------
-" Python 自动补全插件, jedi-vim
-"----------------------------------------------------------------------
-" Plug 'davidhalter/jedi-vim'
-" let g:jedi#goto_assignments_command = "-"
-
-
-"----------------------------------------------------------------------
 " YouCompleteMe
 "----------------------------------------------------------------------
 function! BuildYCM(info)
@@ -66,16 +59,13 @@ let g:ycm_seed_identifiers_with_syntax=1
 
 " 设置Python解释器的路径
 if has('mac')
-	let g:ycm_server_python_interpreter = '/usr/local/bin/python'
+	let g:ycm_server_python_interpreter = '/usr/local/bin/python3'
 else
-	let g:ycm_server_python_interpreter = '/usr/bin/python'
+	let g:ycm_server_python_interpreter = '/usr/bin/python3'
 endif
 
 " 设置补全时用到的Python解释器的路径
-let g:ycm_python_binary_path = 'python'
- if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
-	let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-endif
+let g:ycm_python_binary_path = 'python3'
 
 " 禁用预览功能：扰乱视听
 let g:ycm_add_preview_to_completeopt = 0
@@ -112,11 +102,11 @@ let g:ycm_semantic_triggers =  {
 			\ }
 
 " Ycm 白名单（非名单内文件不启用 YCM），避免打开个 1MB 的 txt 分析半天
-let g:ycm_filetype_whitelist = { 
+let g:ycm_filetype_whitelist = {
 			\ "c":1,
-			\ "cpp":1, 
+			\ "cpp":1,
 			\ "python":1,
-			\ "vim":1, 
+			\ "vim":1,
 			\ "go":1,
 			\ "lua":1,
 			\ "perl":1,

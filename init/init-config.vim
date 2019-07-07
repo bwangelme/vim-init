@@ -40,6 +40,17 @@ set foldlevel=99
 
 
 "----------------------------------------------------------------------
+" 文件默认模板设置
+"----------------------------------------------------------------------
+autocmd bufnewfile *.c so ~/.vim/vim-init/templates/c.template
+autocmd bufnewfile *.py so ~/.vim/vim-init/templates/python.template
+autocmd bufnewfile *.ruby so ~/.vim/vim-init/templates/ruby.template
+autocmd bufnewfile *.cpp so ~/.vim/vim-init/templates/cpp.template
+autocmd bufnewfile *.sh so ~/.vim/vim-init/templates/sh.template
+autocmd bufnewfile *.vim so ~/.vim/vim-init/templates/vim.template
+
+
+"----------------------------------------------------------------------
 " 终端下允许 ALT，详见：http://www.skywind.me/blog/archives/2021
 " 记得设置 ttimeout （见 init-basic.vim） 和 ttimeoutlen （上面）
 "----------------------------------------------------------------------
@@ -176,9 +187,6 @@ augroup InitFileTypesGroup
 	" C/C++ 文件使用 // 作为注释
 	au FileType c,cpp setlocal commentstring=//\ %s
 
-	" markdown 允许自动换行
-	au FileType markdown setlocal wrap
-
 	" lisp 进行微调
 	au FileType lisp setlocal ts=8 sts=2 sw=2 et
 
@@ -197,6 +205,12 @@ augroup InitFileTypesGroup
 	au BufNewFile,BufRead *.es setlocal filetype=erlang
 	au BufNewFile,BufRead *.asc setlocal filetype=asciidoc
 	au BufNewFile,BufRead *.vl setlocal filetype=verilog
+
+	" 具体编辑文件类型的一般设置，比如不要 tab 等
+	autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown.mkd wrap
+	" markdown 允许自动换行
+	au FileType markdown setlocal wrap
+	autocmd BufRead,BufNewFile *.part set filetype=html
 
 augroup END
 
