@@ -206,12 +206,8 @@ augroup InitFileTypesGroup
 	au BufNewFile,BufRead *.asc setlocal filetype=asciidoc
 	au BufNewFile,BufRead *.vl setlocal filetype=verilog
 
-	" 具体编辑文件类型的一般设置，比如不要 tab 等
-	autocmd BufRead,BufNewFile *.md,*.mkd,*.markdown set filetype=markdown.mkd wrap
 	" markdown 允许自动换行
 	au FileType markdown setlocal wrap
 	autocmd BufRead,BufNewFile *.part set filetype=html
 
 augroup END
-
-

@@ -20,10 +20,14 @@ let NERDTreeIgnore=[ '__pycache__$[[dir]]', 'node_modules$', '\.pyc$', '\.pyo$',
 let g:NERDTreeMapOpenSplit = 's'
 let g:NERDTreeMapOpenVSplit = 'v'
 
-" nerdtreetabs
+let g:NERDTreeMinimalUI = 1
+let g:NERDTreeDirArrows = 1
+let g:NERDTreeHijackNetrw = 0
+
 " 关闭同步
 " let g:nerdtree_tabs_synchronize_view=0
 " let g:nerdtree_tabs_synchronize_focus=0
+
 " 是否自动开启nerdtree
 let g:nerdtree_tabs_open_on_console_startup=0
 let g:nerdtree_tabs_open_on_gui_startup=0

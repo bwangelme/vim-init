@@ -36,9 +36,9 @@ set showcmd
 set splitright
 
 " 突出显示当前列
-set cursorcolumn
+" set cursorcolumn
 " 突出显示当前行
-set cursorline
+" set cursorline
 " 设置80行提示线
 set colorcolumn=80
 

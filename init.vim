@@ -43,20 +43,25 @@ LoadScript init/init-tabsize.vim
 " 自定义按键
 LoadScript init/init-keymaps.vim
 
+" 加载 MacVim 的配置
+if has('gui_running')
+	LoadScript init/init-mac.vim
+endif
+
 " 插件加载
 " LoadScript init/init-plugins.vim
 call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 
-LoadScript init/plugins/init-complete.vim
-LoadScript init/plugins/init-edit.vim
-LoadScript init/plugins/init-feature.vim
-LoadScript init/plugins/init-positioning.vim
-LoadScript init/plugins/init-navigation.vim
-LoadScript init/plugins/init-show.vim
-LoadScript init/plugins/init-markdown.vim
-LoadScript init/plugins/init-python.vim
-LoadScript init/plugins/init-nginx.vim
-LoadScript init/plugins/init-go.vim
+LoadScript init-plugins/init-complete.vim
+LoadScript init-plugins/init-edit.vim
+LoadScript init-plugins/init-feature.vim
+LoadScript init-plugins/init-positioning.vim
+LoadScript init-plugins/init-navigation.vim
+LoadScript init-plugins/init-show.vim
+LoadScript init-plugins/init-markdown.vim
+LoadScript init-plugins/init-python.vim
+LoadScript init-plugins/init-nginx.vim
+LoadScript init-plugins/init-go.vim
 
 call plug#end()
 
