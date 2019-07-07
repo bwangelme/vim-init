@@ -24,4 +24,4 @@ let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go', 'java
 let g:go_fold_enable = ['import']
 
 " nmap <Leader>d <Plug>(go-def)
-nmap <leader>g :GoFmt<cr>
+" nmap <leader>g :GoFmt<cr>

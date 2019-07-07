@@ -1,14 +1,14 @@
 "----------------------------------------------------------------------
 " vim-markdown
 "----------------------------------------------------------------------
-Plug 'plasticboy/vim-markdown', {'for': 'markdown.mkd'}
+" Plug 'plasticboy/vim-markdown', {'for': 'markdown.mkd'} 这个插件导致编辑 markdown 文件时出现卡顿，先注释掉
 
 
 "----------------------------------------------------------------------
 " markdown-preview, mathjax-support-for-mkdp
 "----------------------------------------------------------------------
-Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown.mkd'}
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown.mkd'  }
+Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'markdown'}
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app & yarn install', 'for': 'markdown'  }
 
 nmap <silent> <F12> <Plug>MarkdownPreview
 
