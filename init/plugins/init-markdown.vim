@@ -7,13 +7,13 @@ Plug 'plasticboy/vim-markdown', {'for': 'md'}
 "----------------------------------------------------------------------
 " mathjax-support-for-mkdp
 "----------------------------------------------------------------------
-Plug 'iamcco/mathjax-support-for-mkdp'
+Plug 'iamcco/mathjax-support-for-mkdp', {'for': 'md'}
 
 
 "----------------------------------------------------------------------
 " markdown-preview
 "----------------------------------------------------------------------
-Plug 'iamcco/markdown-preview.vim'
+Plug 'iamcco/markdown-preview.vim', {'for': 'md'}
 
 nmap <silent> <F12> <Plug>MarkdownPreview
 let g:mkdp_path_to_chrome = ""
