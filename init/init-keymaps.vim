@@ -83,6 +83,8 @@ cnoremap <c-n> <down>
 cnoremap <c-p> <up>
 " 将%:h映射为%%，%:h的功能是显示当前缓冲区文件的绝对路径
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:p:h').'/' : '%%'
+" 在命令窗口中执行命令后重新打开
+autocmd CmdwinEnter * map <buffer> <F5> <CR>q:
 
 
 "----------------------------------------------------------------------
@@ -252,11 +254,10 @@ noremap <m-l> w
 inoremap <m-h> <c-left>
 inoremap <m-l> <c-right>
 
-" ALT+j/k 逻辑跳转下一行/上一行（按 wrap 逻辑换行进行跳转） 
-noremap <m-j> gj
-noremap <m-k> gk
-inoremap <m-j> <c-\><c-o>gj
-inoremap <m-k> <c-\><c-o>gk
+noremap j gj
+noremap k gk
+noremap gj j
+noremap gk k
 
 " 命令模式下的相同快捷
 cnoremap <m-h> <c-left>
