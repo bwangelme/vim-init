@@ -14,6 +14,8 @@ noremap <leader>o :call ChangeDirIntoCurrentBuffer()<CR>
 let NERDTreeHighlightCursorline=1
 " 自动删除掉通过NERDTree删除的文件的Buffer
 let NERDTreeAutoDeleteBuffer=1
+" 设置标识符
+let g:NERDTreeNodeDelimiter = "\u00a0"
 " 设置NERDTree要忽略的文件
 let NERDTreeIgnore=[ '__pycache__$[[dir]]', 'node_modules$', '\.pyc$', '\.pyo$', '\.obj$', '\.o$', '\.so$', '\.egg$', '^\.git$', '^\.svn$', '^\.hg$', '^venv$' ]
 " s/v 分屏打开文件
@@ -78,7 +80,7 @@ let g:tagbar_type_go = {
 	\ 'ctagsargs' : '-sort -silent'
 \ }
 
-" for markdown
+" for markdown, vimwiki
 let g:tagbar_type_markdown = {
 	\ 'ctagstype': 'markdown',
 	\ 'ctagsbin' : '/Users/michaeltsui/bin/markdown2ctags.py',
@@ -93,3 +95,5 @@ let g:tagbar_type_markdown = {
 	\ },
 	\ 'sort': 0,
 \}
+
+let g:tagbar_type_vimwiki = g:tagbar_type_markdown
