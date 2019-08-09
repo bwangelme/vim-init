@@ -49,7 +49,6 @@ if has('gui_running')
 endif
 
 " 插件加载
-" LoadScript init/init-plugins.vim
 call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 
 LoadScript init-plugins/init-complete.vim
