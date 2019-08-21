@@ -54,7 +54,7 @@ set background=light
 set t_Co=256
 
 " 设置颜色主题，会在所有 runtimepaths 的 colors 目录寻找同名配置
-color solarized
+color seoul256
 
 
 "----------------------------------------------------------------------
@@ -320,6 +320,4 @@ endfunc
 set tabline=%!Vim_NeatTabLine()
 set guitablabel=%{Vim_NeatGuiTabLabel()}
 set guitabtooltip=%{Vim_NeatGuiTabTip()}
-
-
 
