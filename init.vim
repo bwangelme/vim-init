@@ -60,7 +60,6 @@ LoadScript init-plugins/init-show.vim
 LoadScript init-plugins/init-markdown.vim
 LoadScript init-plugins/init-python.vim
 LoadScript init-plugins/init-nginx.vim
-LoadScript init-plugins/init-go.vim
 
 call plug#end()
 
