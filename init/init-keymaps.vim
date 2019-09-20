@@ -28,6 +28,9 @@ nmap - zc
 nmap + zo
 nmap <leader>w :w<CR>
 
+nnoremap <D-[> <C-O>
+nnoremap <D-]> <C-I>
+
 
 "----------------------------------------------------------------------
 " Visual 模式的按键映射
@@ -176,7 +179,7 @@ inoremap <silent><m-0> <ESC>:tabn 10<cr>
 
 
 " MacVim 允许 CMD+数字键快速切换标签
-if has("gui_macvim")
+if has('gui_macvim') && has("gui_running")
 	set macmeta
 	noremap <silent><d-1> :tabn 1<cr>
 	noremap <silent><d-2> :tabn 2<cr>

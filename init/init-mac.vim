@@ -11,6 +11,8 @@ if has("gui_running")
 	set lines=50
 	" 关闭声音
 	set noerrorbells visualbell t_vb=
+
+	set transparency=7
 endif
 
 
