@@ -33,4 +33,7 @@ augroup PythonTab
 	"au FileType python setlocal shiftwidth=4 tabstop=4 noexpandtab
 augroup END
 
-
+augroup YAMLTab
+	au!
+	au FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
