@@ -52,7 +52,7 @@ if has('gui_macvim') && has("gui_running")
 	set background=light
 	color seoul256
 else
-	set background=light
+	set background=dark
 	color solarized
 endif
 
