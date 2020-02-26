@@ -52,9 +52,8 @@ if has('gui_macvim') && has("gui_running")
     set background=light
     color seoul256
 else
-    set background=light
-    color paradox
->>>>>>> Feat: 关闭了一些命令
+    set background=dark
+    color gruvbox
 endif
 
 
