@@ -19,10 +19,10 @@ Plug 'junegunn/fzf.vim'
 
 " 显示所有Buffer
 command! -bang -nargs=* Ag
-	\ call fzf#vim#ag(<q-args>,
-	\                 <bang>0 ? fzf#vim#with_preview('up:60%')
-	\                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-	\                 <bang>0)
+    \ call fzf#vim#ag(<q-args>,
+    \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+    \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+    \                 <bang>0)
 
 nnoremap <Leader>q :Ag<Space>
 xnoremap <silent> <Leader>q y:Ag <C-R>"<CR>
@@ -46,7 +46,7 @@ let g:fzf_layout = { 'window': '30split enew', 'down': '~40%' }
 nmap <leader>s :Files ~/work/Douban/code/scripts/<CR>
 
 nmap <leader>g :call fzf#run({
-	\ 'source': 'ls -1',
-	\ 'dir': '~/work/Douban/code',
-	\ 'sink': 'lcd',
-	\ })<CR>
+    \ 'source': 'ls -1',
+    \ 'dir': '~/work/Douban/code',
+    \ 'sink': 'lcd',
+    \ })<CR>

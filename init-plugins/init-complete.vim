@@ -12,19 +12,19 @@ map <leader>n :UltiSnipsEdit<CR>
 
 " ctrl+j/k 进行选择
 func! g:JInYCM()
-	if pumvisible()
-		return "\<C-n>"
-	else
-		return "\<c-j>"
-	endif
+    if pumvisible()
+        return "\<C-n>"
+    else
+        return "\<c-j>"
+    endif
 endfunction
 
 func! g:KInYCM()
-	if pumvisible()
-		return "\<C-p>"
-	else
-		return "\<c-k>"
-	endif
+    if pumvisible()
+        return "\<C-p>"
+    else
+        return "\<c-k>"
+    endif
 endfunction
 inoremap <c-j> <c-r>=g:JInYCM()<cr>
 au BufEnter,BufRead * exec "inoremap <silent> " . g:UltiSnipsJumpBackwordTrigger . " <C-R>=g:KInYCM()<cr>"
@@ -40,4 +40,4 @@ Plug 'Raimondi/delimitMate'
 au FileType python let b:delimitMate_nesting_quotes = ['"']
 au FileType php let delimitMate_matchpairs = "(:),[:],{:}"
 " 关闭某些类型文件的自动补全
-"au FileType mail let b:delimitMate_autoclose = 0
+au FileType mail let b:delimitMate_autoclose = 0

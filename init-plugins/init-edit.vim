@@ -20,4 +20,3 @@ Plug 'tpope/vim-surround'
 Plug 'ntpeters/vim-better-whitespace'
 
 map <leader>t :StripWhitespace<CR>
-autocmd FileType c,cpp,java,go,puppet,python,rust,twig,xml,yml,perl autocmd BufEnter <buffer> EnableStripWhitespaceOnSave
