@@ -7,7 +7,7 @@
 "----------------------------------------------------------------------
 " markdown-preview, mathjax-support-for-mkdp
 "----------------------------------------------------------------------
-Plug 'iamcco/mathjax-support-for-mkdp', {'for': ['markdown', 'vimwiki']}
+" Plug 'iamcco/mathjax-support-for-mkdp', {'for': ['markdown', 'vimwiki']}
 " Plug 'iamcco/markdown-preview.nvim', {'do': 'cd app & yarn install', 'for': ['markdown', 'vimwiki']}
 
 " nmap <silent> <F12> <Plug>MarkdownPreview

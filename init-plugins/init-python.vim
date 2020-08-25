@@ -1,7 +1,7 @@
 "----------------------------------------------------------------------
 " python-syntax
 "----------------------------------------------------------------------
-Plug 'vim-python/python-syntax', {'for': 'python'}
+" Plug 'vim-python/python-syntax', {'for': 'python'}
 
 let python_highlight_all = 1
 
