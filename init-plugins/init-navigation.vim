@@ -81,9 +81,10 @@ let g:tagbar_type_go = {
 \ }
 
 " for markdown, vimwiki
+let g:md_ctags_bin=fnamemodify(expand("$HOME")."/.vim/vim-init/tools/markdown2ctags.py", ":p")
 let g:tagbar_type_markdown = {
     \ 'ctagstype': 'markdown',
-    \ 'ctagsbin' : '/Users/michaeltsui/bin/markdown2ctags.py',
+    \ 'ctagsbin' : g:md_ctags_bin,
     \ 'ctagsargs' : '-f - --sort=yes',
     \ 'kinds' : [
         \ 's:sections',
