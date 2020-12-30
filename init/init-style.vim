@@ -52,6 +52,7 @@ if has('gui_macvim') && has("gui_running")
     set background=light
 else
     set background=light
+    color gruvbox
 endif
 
 
