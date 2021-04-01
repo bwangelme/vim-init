@@ -26,7 +26,7 @@ nnoremap U <C-r>
 " 文件折叠
 nmap - zc
 nmap + zo
-nmap <leader>w :w<CR>
+nmap <leader>s :w<CR>
 
 nnoremap <D-[> <C-O>
 nnoremap <D-]> <C-I>
@@ -217,12 +217,9 @@ noremap <silent> <leader>bp :bp<cr>
 " 其实还可以用原生的 CTRL+PageUp, CTRL+PageDown 来切换标签
 "----------------------------------------------------------------------
 
-noremap <silent> <m-t> :tabnew<cr>
-noremap <silent> <m-w> :tabclose<cr>
-" TODO: m-f, m-b 无效，需要查找原因
-noremap <silent> <m-f> :tabnext<cr>
-noremap <silent> <m-b> :tabprev<cr>
-noremap <silent> <m-0> :tabonly<cr>
+noremap <silent> <leader>t :tabnew<cr>
+noremap <silent> <leader>f :tabnext<cr>
+noremap <silent> <leader>b :tabprev<cr>
 
 
 " 左移 tab
@@ -241,8 +238,6 @@ function! Tab_MoveRight()
     endif
 endfunc
 
-noremap <silent><leader>tl :call Tab_MoveLeft()<cr>
-noremap <silent><leader>tr :call Tab_MoveRight()<cr>
 noremap <silent><m-left> :call Tab_MoveLeft()<cr>
 noremap <silent><m-right> :call Tab_MoveRight()<cr>
 

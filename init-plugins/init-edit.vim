@@ -19,4 +19,4 @@ Plug 'tpope/vim-surround'
 "----------------------------------------------------------------------
 Plug 'ntpeters/vim-better-whitespace'
 
-map <leader>t :StripWhitespace<CR>
+map <leader>g :StripWhitespace<CR>

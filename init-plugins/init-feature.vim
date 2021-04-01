@@ -10,10 +10,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vimwiki/vimwiki'
 
 nmap <leader>v <Plug>VimwikiIndex
-" nmap <leader>e <Plug>VimwikiMakeDiaryNote
-nmap <leader>e :e ~/vimwiki/douban/README.md
-nmap <leader>i :e ~/vimwiki/douban/README.md<CR>
-nmap <Leader>wn <Plug>VimwikiNextLink
+nmap <leader>e <Plug>VimwikiMakeDiaryNote
 
 let g:vimwiki_global_ext = 0
 let g:vimwiki_table_mappins = 0
