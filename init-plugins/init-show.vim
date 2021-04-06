@@ -34,7 +34,7 @@
 "----------------------------------------------------------------------
 " 主题 solarized
 "----------------------------------------------------------------------
-" Plug 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
 
 let g:solarized_termtrans=1
@@ -52,8 +52,8 @@ Plug 'kshenoy/vim-signature'
 " Airline
 "----------------------------------------------------------------------
 
-" Plug 'vim-airline/vim-airline'
-" Plug 'vim-airline/vim-airline-themes'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
