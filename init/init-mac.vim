@@ -15,7 +15,7 @@ if has("gui_running") && has("macunix")
     set transparency=7
 endif
 
-if has("gui_running")
+if has("gui_running") && !has("macunix")
     set guifont=Ubuntu\ Mono\ Regular\ 15
     set guioptions=aegimrLt
 endif
