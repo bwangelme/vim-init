@@ -48,8 +48,9 @@ set colorcolumn=80
 "----------------------------------------------------------------------
 
 " 设置颜色主题，会在所有 runtimepaths 的 colors 目录寻找同名配置
-if has('gui_macvim') && has("gui_running")
+if has("gui_running")
     set background=light
+    color seoul256
 else
     set background=light
 endif

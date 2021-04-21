@@ -1,4 +1,4 @@
-if has("gui_running")
+if has("gui_running") && has("macunix")
     " 设置 MacVim 的字体
     set guifont=Monaco:h14
     " MacVim 移除滚动条
@@ -13,6 +13,11 @@ if has("gui_running")
     set noerrorbells visualbell t_vb=
 
     set transparency=7
+endif
+
+if has("gui_running")
+    set guifont=Ubuntu\ Mono\ Regular\ 15
+    set guioptions=aegimrLt
 endif
 
 

@@ -210,6 +210,8 @@ endif
 "----------------------------------------------------------------------
 noremap <silent> <leader>bn :bn<cr>
 noremap <silent> <leader>bp :bp<cr>
+noremap <silent><m-t> :tabnew<cr>
+inoremap <silent><m-t> <ESC>:tabnew<cr>
 
 
 "----------------------------------------------------------------------
