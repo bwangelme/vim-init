@@ -45,7 +45,15 @@ LoadScript init/init-keymaps.vim
 
 " 加载 MacVim 的配置
 if has('gui_running')
-	LoadScript init/init-mac.vim
+    LoadScript init/init-gui.vim
+endif
+
+if has('gui_running') && has("macunix")
+    LoadScript init/init-mac.vim
+endif
+
+if has('gui_running') && has('x11')
+    LoadScript init/init-ubuntu.vim
 endif
 
 " 插件加载
