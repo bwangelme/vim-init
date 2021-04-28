@@ -53,6 +53,7 @@ if has("gui_running")
     color seoul256
 else
     set background=light
+    color seoul256
 endif
 
 
