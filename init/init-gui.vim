@@ -26,5 +26,3 @@ imap <D-8> <Esc>:tabn 8<CR>
 imap <D-9> <Esc>:tabn 9<CR>
 " Command-0 goes to the last tab
 imap <D-0> <Esc>:tablast<CR>
-
-set noswapfile

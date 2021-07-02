@@ -134,7 +134,7 @@ set backupdir=~/.vim/tmp
 set backupext=.bak
 
 " 禁用交换文件
-set noswapfile
+" set noswapfile
 
 " 禁用 undo文件
 set noundofile
