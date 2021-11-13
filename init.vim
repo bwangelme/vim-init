@@ -57,9 +57,7 @@ LoadScript init-plugins/init-feature.vim
 LoadScript init-plugins/init-positioning.vim
 LoadScript init-plugins/init-navigation.vim
 LoadScript init-plugins/init-show.vim
-LoadScript init-plugins/init-markdown.vim
 LoadScript init-plugins/init-python.vim
-LoadScript init-plugins/init-go.vim
 LoadScript init-plugins/init-nginx.vim
 
 call plug#end()

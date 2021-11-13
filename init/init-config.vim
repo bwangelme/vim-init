@@ -46,6 +46,7 @@ autocmd bufnewfile *.c so ~/.vim/vim-init/templates/c.template
 autocmd bufnewfile *.py so ~/.vim/vim-init/templates/python.template
 autocmd bufnewfile *.ruby so ~/.vim/vim-init/templates/ruby.template
 autocmd bufnewfile *.cpp so ~/.vim/vim-init/templates/cpp.template
+autocmd bufnewfile *.go so ~/.vim/vim-init/templates/go.template
 autocmd bufnewfile *.sh so ~/.vim/vim-init/templates/sh.template
 autocmd bufnewfile *.vim so ~/.vim/vim-init/templates/vim.template
 

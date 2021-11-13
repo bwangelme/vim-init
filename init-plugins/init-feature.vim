@@ -7,7 +7,7 @@ Plug 'tpope/vim-fugitive'
 "----------------------------------------------------------------------
 " vimwiki
 "----------------------------------------------------------------------
-Plug 'vimwiki/vimwiki'
+" Plug 'vimwiki/vimwiki'
 
 nmap <leader>v <Plug>VimwikiIndex
 nmap <leader>e <Plug>VimwikiMakeDiaryNote
