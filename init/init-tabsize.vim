@@ -13,12 +13,6 @@
 " 默认缩进模式（可以后期覆盖）
 "----------------------------------------------------------------------
 
-" 设置缩进宽度
-set sw=4
-
-" 设置 TAB 宽度
-set ts=4
-
 " 按退格键时可以一次删掉 4 个空格
 set softtabstop=4
 
@@ -48,5 +42,5 @@ augroup END
 
 augroup YAMLTab
     au!
-    au FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    au FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2 expandtab shiftround
 augroup END
