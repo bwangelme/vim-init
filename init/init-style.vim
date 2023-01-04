@@ -45,6 +45,8 @@ set colorcolumn=80
 " 设置字体
 set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
 
+set guioptions=aegimrLt
+
 
 "----------------------------------------------------------------------
 " 颜色主题：色彩文件位于 colors 目录中
