@@ -23,7 +23,7 @@ nnoremap U <C-r>
 " 文件折叠
 nmap - zc
 nmap + zo
-nmap <leader>w :w<CR>
+nmap <M-s> :w<CR>
 
 nnoremap <D-[> <C-O>
 nnoremap <D-]> <C-I>
@@ -64,6 +64,7 @@ inoremap <C-l> <right>
 
 " 从剪切板中粘贴
 inoremap <M-v> <C-R>+
+cnoremap <M-v> <C-R>+
 
 "----------------------------------------------------------------------
 " 命令模式的按键映射

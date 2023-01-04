@@ -46,7 +46,7 @@ let g:fzf_action = {
 let g:fzf_layout = { 'window': '30split enew', 'down': '~40%' }
 
 " 快速打开某个位置的文件
-nmap <leader>s :Files ~/work/Douban/code/scripts/<CR>
+nmap <leader>s :Files ~/work/Douban/code/dae-scripts<CR>
 
 nmap <leader>g :call fzf#run({
     \ 'source': 'ls -1',
