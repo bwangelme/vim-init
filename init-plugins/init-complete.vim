@@ -6,7 +6,7 @@ Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
 let g:UltiSnipsExpandTrigger       = "<tab>"
 " 定义存放代码片段的文件夹 .vim/UltiSnips下，使用自定义和默认的，将会的到全局，有冲突的会提示
-let g:UltiSnipsSnippetsDir = '~/.vim/vim-init/UltiSnips'
+let g:UltiSnipsSnippetDirectories = ["~/.vim/vim-init/UltiSnips"]
 " 进入对应filetype的snippets进行编辑
 map <leader>n :UltiSnipsEdit<CR>
 
