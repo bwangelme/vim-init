@@ -13,25 +13,13 @@ map <leader>. <Plug>(easymotion-repeat)
 "----------------------------------------------------------------------
 " fzf
 "----------------------------------------------------------------------
-" fzf
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+
+" Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" 显示所有Buffer
-command! -bang -nargs=* Rg
-    \ call fzf#vim#ag(<q-args>, "--vim --go --python --js --yaml --toml --cc",
-    \                 <bang>0 ? fzf#vim#with_preview('up:60%')
-    \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
-    \                 <bang>0)
-
-nnoremap <Leader>q :Rg<Space>
-" 搜索选中的单词
-xnoremap <silent> <Leader>q y:Rg <C-R>"<CR>
-" 搜索当前光标下的单词
-noremap <silent> \ :Rg <C-R><C-W> <CR>
 nnoremap <silent> <Leader>` :Marks<CR>
 nnoremap <leader>p :Files<CR>
-" xnoremap <silent> <Leader>p y:Files <C-R>"<CR>
 nnoremap <silent> <Leader>l  :Buffers<CR>
 nnoremap <leader>m :Maps<CR>
 nnoremap <silent> <Leader><Enter>        :BLines<CR>
@@ -53,3 +41,16 @@ nmap <leader>g :call fzf#run({
     \ 'dir': '~/work/Douban/code',
     \ 'sink': 'lcd',
     \ })<CR>
+
+
+"----------------------------------------------------------------------
+" vim-ripgrep
+"----------------------------------------------------------------------
+
+Plug 'jremmen/vim-ripgrep'
+
+nnoremap <Leader>q :Rg<Space>
+" 搜索选中的单词
+xnoremap <silent> <Leader>q y:Rg <C-R>"<CR>
+" 搜索当前光标下的单词
+noremap <silent> \ :Rg <C-R><C-W> <CR>
