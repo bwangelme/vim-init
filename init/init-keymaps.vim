@@ -55,15 +55,15 @@ nnoremap <C-s> <C-w>s
 inoremap <c-a> <home>
 inoremap <c-e> <end>
 inoremap <c-d> <del>
-inoremap <c-_> <c-k>
+
 " 插入模式下将小写字母转换成大写字母, I love this very much
 inoremap <C-y> <esc>gUiwea
-" 详见：http://www.skywind.me/blog/archives/2021
+
 inoremap <C-h> <left>
-inoremap <C-j> <down>
-inoremap <C-k> <up>
 inoremap <C-l> <right>
 
+" 从剪切板中粘贴
+inoremap <M-v> <C-R>+
 
 "----------------------------------------------------------------------
 " 命令模式的按键映射
