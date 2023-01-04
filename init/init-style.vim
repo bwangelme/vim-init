@@ -38,9 +38,12 @@ set splitright
 " 突出显示当前列
 " set cursorcolumn
 " 突出显示当前行
-" set cursorline
+set cursorline
 " 设置80行提示线
 set colorcolumn=80
+
+" 设置字体
+set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
 
 
 "----------------------------------------------------------------------
@@ -48,10 +51,12 @@ set colorcolumn=80
 "----------------------------------------------------------------------
 
 " 设置颜色主题，会在所有 runtimepaths 的 colors 目录寻找同名配置
-if has('gui_macvim') && has("gui_running")
+if has("gui_running")
     set background=light
+    colorscheme seoul256
 else
     set background=light
+    colorscheme zellner
 endif
 
 

@@ -44,7 +44,7 @@ LoadScript init/init-tabsize.vim
 LoadScript init/init-keymaps.vim
 
 " 加载 MacVim 的配置
-if has('gui_running')
+if has('gui_macvim') && has('gui_running')
 	LoadScript init/init-mac.vim
 endif
 
