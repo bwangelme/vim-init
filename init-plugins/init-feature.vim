@@ -3,6 +3,8 @@
 "----------------------------------------------------------------------
 Plug 'tpope/vim-fugitive'
 
+nmap <leader>u :Git push<CR>
+nmap <leader>y :Git<CR>
 
 "----------------------------------------------------------------------
 " vimwiki
@@ -11,7 +13,6 @@ Plug 'bwangelme/vimwiki-plugin'
 
 nmap <leader>v <Plug>VimwikiIndex
 nmap <leader>e <Plug>VimwikiMakeDiaryNote
-nmap <leader>i :e ~/vimwiki/douban/README.md<CR>
 nmap <Leader>wn <Plug>VimwikiNextLink
 
 let g:vimwiki_global_ext = 0
