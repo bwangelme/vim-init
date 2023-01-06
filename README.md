@@ -5,7 +5,7 @@
 经过长时间的体验之后，我发现在终端中使用复杂配置的 vim 是一件比较困难的事情。主要痛点是：
 
 1. 终端内的流畅度较差，无论使用哪一种终端，流畅度都比不上 gvim
-2. 终端+ Tmux 的快捷键会和 vim 产生冲突
+2. 终端 + Tmux 的快捷键会和 vim 产生冲突
 
 鉴于以上两个原因，我个人比较喜欢使用 gvim, 所以此配置也是为 gvim 定制，删掉了很多终端相关的配置。
 
@@ -24,7 +24,7 @@ git clone https://github.com/skywind3000/vim-init.git
 source ~/.vim/vim-init/init.vim
 ```
 
-然后启动 Vim，在命令行运行 `:PlugInstall` 安装依赖插件即可。
+然后启动 Vim(建议启动之前使用 `http_proxy` 环境变量设置代理)，在命令行运行 `:PlugInstall` 安装依赖插件即可。
 
 # 结构
 
