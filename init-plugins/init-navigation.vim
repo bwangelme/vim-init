@@ -1,14 +1,14 @@
 "----------------------------------------------------------------------
 " nerdtree nerdtreetabs
 "----------------------------------------------------------------------
-Plug 'scrooloose/nerdtree' | Plug 'jistr/vim-nerdtree-tabs'
+Plug 'preservim/nerdtree'
 
 function! ChangeDirIntoCurrentBuffer()
     cd %:p:h
     NERDTreeCWD
 endfunction
 
-noremap <F3> :NERDTreeToggle<CR>
+noremap <F3> :NERDTreeMirrorToggle<CR>
 noremap <leader>o :call ChangeDirIntoCurrentBuffer()<CR>
 
 let NERDTreeHighlightCursorline=1

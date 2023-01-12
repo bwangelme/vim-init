@@ -12,7 +12,6 @@ nmap <leader>y :Git<CR>
 Plug 'bwangelme/vimwiki-plugin'
 
 nmap <leader>v <Plug>VimwikiIndex
-nmap <leader>e <Plug>VimwikiMakeDiaryNote
 nmap <Leader>wn <Plug>VimwikiNextLink
 
 let g:vimwiki_global_ext = 0
