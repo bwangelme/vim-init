@@ -8,7 +8,7 @@ function! ChangeDirIntoCurrentBuffer()
     NERDTreeCWD
 endfunction
 
-noremap <F3> :NERDTreeMirrorToggle<CR>
+noremap <F3> :NERDTreeToggle<CR>
 noremap <leader>o :call ChangeDirIntoCurrentBuffer()<CR>
 
 let NERDTreeHighlightCursorline=1

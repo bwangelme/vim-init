@@ -3,6 +3,13 @@
 "----------------------------------------------------------------------
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown.mkd'} 这个插件导致编辑 markdown 文件时出现卡顿，先注释掉
 
+"----------------------------------------------------------------------
+" vim-checkbox
+"----------------------------------------------------------------------
+Plug 'jkramer/vim-checkbox'
+
+map <silent> <C-space> :call checkbox#ToggleCB()<CR>
+let g:checkbox_states = [' ', 'X']
 
 "----------------------------------------------------------------------
 " markdown-preview, mathjax-support-for-mkdp

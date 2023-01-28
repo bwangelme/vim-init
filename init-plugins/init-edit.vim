@@ -7,6 +7,8 @@ autocmd FileType nginx setlocal commentstring=#\ %s
 autocmd FileType sql setlocal commentstring=--\ %s
 autocmd FileType awk setlocal commentstring=#\ %s
 
+noremap <M-/> :Commentary<CR>
+
 
 "----------------------------------------------------------------------
 " 快速加入修改环绕字符
