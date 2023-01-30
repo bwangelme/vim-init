@@ -37,6 +37,9 @@ let g:fzf_layout = { 'window': '30split enew', 'down': '~40%' }
 nmap <leader>s :Files ~/work/Douban/code/dae-scripts<CR>
 nmap <leader>e :Files ~/work/Douban/workNote/<CR>
 
+" 快速切到某个目录
+nmap <leader>d :cd ~/work/Douban/workNote/<CR>
+
 nmap <leader>g :call fzf#run({
     \ 'source': 'ls -1',
     \ 'dir': '~/work/Douban/code',
