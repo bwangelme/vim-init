@@ -252,8 +252,8 @@ inoremap <m-y> <c-\><c-o>d$
 "----------------------------------------------------------------------
 " 获取当前位置作为断点
 function! GetBreakPoint()
-    let @* = expand("%").":".line(".")
-    echo @*
+    let @+ = expand("%").":".line(".")
+    echo @+
 endfunction
 
 nmap <leader>b :call GetBreakPoint()<CR>
