@@ -46,3 +46,8 @@ augroup YAMLTab
     au!
     au FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
+
+augroup LuaTab
+    au!
+    au FileType yaml setlocal shiftwidth=4 tabstop=4 softtabstop=4
+augroup END
