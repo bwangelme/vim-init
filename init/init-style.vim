@@ -63,7 +63,8 @@ if has("gui_running")
 else
     set background=dark
     " colorscheme zellner
-    colorscheme gruvbox
+    " colorscheme gruvbox
+    colorscheme seoul256
 endif
 
 " 允许 256 色
