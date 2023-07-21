@@ -124,7 +124,7 @@ augroup InitFileTypesGroup
     autocmd BufRead,BufNewFile *.part set filetype=html
 
     " 部分文件关掉高亮
-    " au FileType markdown syntax off
+    au FileType markdown syntax off
     " au FileType vimwiki syntax off
 
 augroup END
