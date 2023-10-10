@@ -43,7 +43,7 @@ set splitright
 " 突出显示当前行
 set cursorline
 " 设置80行提示线
-set colorcolumn=80
+" set colorcolumn=80
 
 " 设置字体
 set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
@@ -62,9 +62,9 @@ if has("gui_running")
     colorscheme seoul256
 else
     set background=dark
-    " colorscheme zellner
+    colorscheme desert
     " colorscheme gruvbox
-    colorscheme seoul256
+    " colorscheme seoul256
 endif
 
 " 允许 256 色
@@ -140,8 +140,7 @@ endif
 hi! SignColumn guibg=NONE ctermbg=NONE
 
 " 修改行号为浅灰色，默认主题的黄色行号很难看，换主题可以仿照修改
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE 
-    \ gui=NONE guifg=DarkGrey guibg=NONE
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " 修正补全目录的色彩：默认太难看
 hi! Pmenu guibg=gray guifg=black ctermbg=gray ctermfg=black
