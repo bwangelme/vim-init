@@ -10,11 +10,8 @@
 " 默认缩进模式（可以后期覆盖）
 "----------------------------------------------------------------------
 
-" 设置缩进宽度
-set sw=4
-
-" 设置 TAB 宽度
-set ts=4
+" 将Tab自动转化成空格[需要输入真正的Tab键时，使用 Ctrl+V + Tab]
+set expandtab
 
 " 按退格键时可以一次删掉 4 个空格
 set softtabstop=4
@@ -27,9 +24,6 @@ set shiftwidth=4
 
 " insert tabs on the start of a line according to shiftwidth, not tabstop 按退格键时可以一次删掉 4 个空格
 set smarttab
-
-" 将Tab自动转化成空格[需要输入真正的Tab键时，使用 Ctrl+V + Tab]
-set expandtab
 
 " 缩进时，取整 use multiple of shiftwidth when indenting with '<' and '>'
 set shiftround
@@ -44,10 +38,10 @@ augroup END
 
 augroup YAMLTab
     au!
-    au FileType yaml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+    autocmd FileType yaml setlocal expandtab autoindent shiftwidth=2 tabstop=2 softtabstop=2
 augroup END
 
 augroup LuaTab
     au!
-    au FileType yaml setlocal shiftwidth=4 tabstop=4 softtabstop=4
+    au FileType lua setlocal shiftwidth=4 tabstop=4 softtabstop=4
 augroup END
