@@ -146,6 +146,10 @@ highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE gui
 hi! Pmenu guibg=gray guifg=black ctermbg=gray ctermfg=black
 hi! PmenuSel guibg=gray guifg=brown ctermbg=brown ctermfg=gray
 
+" 修改搜索高亮
+hi! Search      cterm=NONE ctermfg=yellow ctermbg=green
+hi! IncSearch   cterm=NONE ctermfg=yellow ctermbg=red
+
 
 "----------------------------------------------------------------------
 " quickfix 设置，隐藏行号
