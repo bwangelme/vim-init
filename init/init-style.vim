@@ -46,7 +46,7 @@ set cursorline
 " set colorcolumn=80
 
 " 设置字体
-set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
+set guifont=DejaVuSansM\ Nerd\ Font\ Mono\ 14
 
 " 关闭工具栏
 set guioptions=aegimrLt
