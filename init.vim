@@ -43,11 +43,6 @@ LoadScript init/init-tabsize.vim
 " 自定义按键
 LoadScript init/init-keymaps.vim
 
-" 加载 MacVim 的配置
-if has('gui_macvim') && has('gui_running')
-	LoadScript init/init-mac.vim
-endif
-
 " 插件加载
 call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 
@@ -66,3 +61,9 @@ call plug#end()
 
 " 界面样式
 LoadScript init/init-style.vim
+
+" 加载 MacVim 的配置
+if has('gui_macvim') && has('gui_running')
+    LoadScript init/init-mac.vim
+endif
+

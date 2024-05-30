@@ -46,10 +46,13 @@ set cursorline
 " set colorcolumn=80
 
 " 设置字体
-set guifont=DejaVuSansM\ Nerd\ Font\ Mono\ 14
+if has('gui_running')
+    set guifont=DejaVuSansM\ Nerd\ Font\ Mono\ 14
 
-" 关闭工具栏
-set guioptions=aegimrLt
+    " 关闭工具栏
+    set guioptions=aegimrLt
+endif
+
 
 
 "----------------------------------------------------------------------
@@ -67,9 +70,9 @@ else
     " colorscheme seoul256
 endif
 
+
 " 允许 256 色
 set t_Co=256
-
 
 "----------------------------------------------------------------------
 " 状态栏设置
