@@ -43,6 +43,9 @@ LoadScript init/init-tabsize.vim
 " 自定义按键
 LoadScript init/init-keymaps.vim
 
+" zyb
+LoadScript init/init-zyb.vim
+
 " 插件加载
 call plug#begin(get(g:, 'bundle_home', '~/.vim/bundles'))
 

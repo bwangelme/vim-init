@@ -1,5 +1,5 @@
 " 设置 MacVim 的字体
-set guifont=Monaco:h14
+set guifont=Monaco:h18
 " MacVim 移除滚动条
 set guioptions=
 " MacVim 鼠标
