@@ -103,11 +103,6 @@ set matchtime=2
 " 显示最后一行
 set display=lastline
 
-" ex模式下补全的方式
-set wildmode=list:longest
-" 允许下方显示目录
-set wildmenu
-
 " 延迟绘制（提升性能）
 set lazyredraw
 
@@ -145,6 +140,13 @@ if has('folding')
     " 默认打开所有缩进
     set foldlevel=99
 endif
+
+
+"-------------
+" ex模式下补全的方式
+"-------------
+set wildmenu
+set wildmode=list:longest,full
 
 
 "----------------------------------------------------------------------
