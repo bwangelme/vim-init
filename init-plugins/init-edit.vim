@@ -8,6 +8,7 @@ autocmd FileType sql setlocal commentstring=--\ %s
 autocmd FileType awk setlocal commentstring=#\ %s
 
 noremap <M-/> :Commentary<CR>
+noremap <D-/> :Commentary<CR>
 noremap <leader>/ :Commentary<CR>
 
 
