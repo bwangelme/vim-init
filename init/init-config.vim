@@ -128,3 +128,7 @@ augroup InitFileTypesGroup
     " au FileType vimwiki syntax off
 
 augroup END
+
+" 文件修改后自动载入
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
