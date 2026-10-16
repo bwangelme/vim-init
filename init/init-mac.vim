@@ -44,3 +44,7 @@ imap <D-9> <Esc>:tabn 9<CR>
 imap <D-0> <Esc>:tablast<CR>
 
 set noswapfile
+
+" 文件修改后自动载入
+set autoread
+autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif

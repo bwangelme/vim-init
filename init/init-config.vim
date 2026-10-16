@@ -93,7 +93,6 @@ set mouse=a
 " 文件类型微调
 "----------------------------------------------------------------------
 augroup InitFileTypesGroup
-
     " 清除同组的历史 autocommand
     au!
 
@@ -112,23 +111,11 @@ augroup InitFileTypesGroup
     " quickfix 隐藏行号
     au FileType qf setlocal nonumber
 
-    " 强制对某些扩展名的 filetype 进行纠正
-    au BufNewFile,BufRead *.as setlocal filetype=actionscript
-    au BufNewFile,BufRead *.pro setlocal filetype=prolog
-    au BufNewFile,BufRead *.es setlocal filetype=erlang
-    au BufNewFile,BufRead *.asc setlocal filetype=asciidoc
-    au BufNewFile,BufRead *.vl setlocal filetype=verilog
-
     " markdown 允许自动换行
     au FileType markdown setlocal wrap
-    autocmd BufRead,BufNewFile *.part set filetype=html
 
     " 部分文件关掉高亮
     au FileType markdown syntax off
     " au FileType vimwiki syntax off
 
 augroup END
-
-" 文件修改后自动载入
-set autoread
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
