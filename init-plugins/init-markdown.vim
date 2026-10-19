@@ -7,6 +7,12 @@ let g:markdown_fenced_languages = [
             \ 'javascript', 'js=javascript', 'typescript', 'ts=typescript',
             \ 'json', 'yaml', 'yml=yaml', 'sql', 'lua', 'vim', 'html', 'css']
 
+" 禁用内置 Markdown 对单词中间下划线的错误提示（如 finance_balance_new）。
+augroup VimInitMarkdownHighlight
+    autocmd!
+    autocmd Syntax markdown silent! syntax clear markdownError
+augroup END
+
 "----------------------------------------------------------------------
 " vim-markdown
 "----------------------------------------------------------------------
