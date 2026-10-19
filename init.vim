@@ -53,8 +53,7 @@ LoadScript init-plugins/init-positioning.vim
 LoadScript init-plugins/init-navigation.vim
 LoadScript init-plugins/init-show.vim
 LoadScript init-plugins/init-markdown.vim
-LoadScript init-plugins/init-python.vim
-LoadScript init-plugins/init-golang.vim
+" 文档与配置文件用途不加载 Python/Go 开发模块。
 LoadScript init-plugins/init-nginx.vim
 
 call plug#end()

@@ -1,11 +1,13 @@
 "----------------------------------------------------------------------
 " nerdtree nerdtreetabs
 "----------------------------------------------------------------------
-Plug 'preservim/nerdtree'
+Plug 'preservim/nerdtree', {'on': ['NERDTreeToggle', 'NERDTreeCWD', 'NERDTreeFind']}
 
 function! ChangeDirIntoCurrentBuffer()
-    cd %:p:h
-    NERDTreeCWD
+    if !empty(expand('%:p'))
+        execute 'cd' fnameescape(expand('%:p:h'))
+        NERDTreeCWD
+    endif
 endfunction
 
 noremap <F3> :NERDTreeToggle<CR>
@@ -38,7 +40,7 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 "----------------------------------------------------------------------
 " tagbar
 "----------------------------------------------------------------------
-Plug 'majutsushi/tagbar'
+Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_width = 54
@@ -47,38 +49,6 @@ let g:tagbar_indent = 1
 let g:tagbar_compact = 1
 let g:tagbar_silent = 1
 let g:tagbar_iconchars = ['▸', '▾']
-
-" go语言的tagbar配置
-" 1. install gotags 'go get -u github.com/jstemmer/gotags'
-" 2. make sure `gotags` in you shell PATH, you can call check it with `which gotags`
-" for gotags. work with tagbar
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
 
 " for markdown, vimwiki
 let g:md_ctags_bin=fnamemodify(expand("$HOME")."/.vim/vim-init/cmds/markdown2ctags.py", ":p")

@@ -37,3 +37,21 @@ source ~/.vim/vim-init/init.vim
 - `init-plugin.vim`: 插件，使用 vim-plug，按照设定的插件分组进行配置。
 - `init-style.vim`: 色彩主题，高亮优化，状态栏，更紧凑的标签栏文字等和显示相关的东西。
 - `init-keymaps.vim`: 快捷键定义。
+
+## MacVim 文档编辑配置（2026-10）
+
+当前配置面向 Vimwiki 文档和配置文件编辑：
+
+- 保留 Vimwiki、FZF、NERDTree、Git、注释、环绕字符和自定义片段。
+- 不加载 Python/Go 开发模块、Thrift 插件和通用编程片段库；Vim 自带的文件类型识别、缩进和代码块高亮仍然可用。
+- UltiSnips 在首次进入插入模式或执行 `:UltiSnipsEdit` 时加载；首次输入可能有一次 Python 初始化延迟。自定义 `tto`、`date` 等片段文件保留。
+- NERDTree 和 Tagbar 在首次执行对应命令时加载，F3/F8 保持原用途。Tagbar 仍需要 Exuberant/Universal Ctags，macOS 自带的 `/usr/bin/ctags` 不兼容；Markdown 大纲脚本使用 Python 3。
+- 默认使用手动折叠；需要缩进折叠时，可在当前窗口执行 `:setlocal foldmethod=indent`。
+- Markdown/Vimwiki 仅在屏幕上折行。最多 3000 行且不超过 1 MiB 的笔记从头同步高亮；更大的文档向上回溯 200–1000 行。超长代码块若出现高亮错位，可执行 `:syntax sync fromstart`，以更多解析开销换取准确性。
+- 保留 `:StripWhitespace` 和空格+t 手动清理；默认关闭逐次输入时的行尾空格高亮。Markdown 的两个行尾空格可表示硬换行，清理前需注意。
+- 保存前备份放在 `~/.vim/tmp/`，文件名包含完整路径，避免同名文件相互覆盖。持久撤销和交换文件分别放在其 `undo/`、`swap/` 子目录；交换文件用于异常退出后的未保存内容恢复。
+- 切回应用、切换缓冲区或普通模式空闲时，只检查当前文件的外部修改；有本地未保存修改时仍遵循 Vim 的冲突提示。
+
+Vimwiki 自带的缓冲区快捷键优先于全局映射：`Ctrl-Space` 使用原生待办切换；普通 Markdown 使用 `:ToggleCB`。Vimwiki 的 Tab 保留表格跳转行为，普通 Markdown 中的 Tab 可展开自定义片段。
+
+修改后请重新启动 MacVim。已移出声明的插件目录仍留在磁盘，可后续按需清理。

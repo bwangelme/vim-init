@@ -10,12 +10,6 @@
 " 显示设置
 "----------------------------------------------------------------------
 
-" 设置启动时的位置
-if has("gui_running")
-    winpos 165 51
-    set lines=43 columns=201
-endif
-
 " 总是显示行号
 set number
 
@@ -44,16 +38,6 @@ set splitright
 set cursorline
 " 设置80行提示线
 " set colorcolumn=80
-
-" 设置字体
-if has('gui_running')
-    set guifont=DejaVuSansM\ Nerd\ Font\ Mono\ 14
-
-    " 关闭工具栏
-    set guioptions=aegimrLt
-endif
-
-
 
 "----------------------------------------------------------------------
 " 颜色主题：色彩文件位于 colors 目录中
@@ -131,7 +115,7 @@ if has('gui_running')
     hi! SpellBad gui=undercurl guisp=red
     hi! SpellCap gui=undercurl guisp=blue
     hi! SpellRare gui=undercurl guisp=magenta
-    hi! SpellRare gui=undercurl guisp=cyan
+    hi! SpellLocal gui=undercurl guisp=cyan
 else
     hi! SpellBad term=standout ctermfg=1 term=underline cterm=underline
     hi! SpellCap term=underline cterm=underline

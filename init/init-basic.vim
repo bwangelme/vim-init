@@ -20,8 +20,8 @@ set bs=eol,start,indent
 " 自动缩进
 set autoindent
 
-" 打开 C/C++ 语言缩进优化
-set cindent
+" 默认只继承上一行缩进；具体文件类型由自带 indent 脚本处理。
+set nocindent
 
 " Windows 禁用 ALT 操作菜单（使得 ALT 可以用到 Vim里）
 set winaltkeys=no
@@ -86,7 +86,6 @@ endif
 "----------------------------------------------------------------------
 if has('syntax')
     syntax enable
-    syntax on
 endif
 
 
@@ -134,8 +133,8 @@ if has('folding')
     " 允许代码折叠
     set foldenable
 
-    " 代码折叠默认使用缩进
-    set fdm=indent
+    " 默认手动折叠，避免为普通文档反复计算缩进折叠。
+    set foldmethod=manual
 
     " 默认打开所有缩进
     set foldlevel=99

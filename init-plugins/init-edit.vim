@@ -23,4 +23,8 @@ Plug 'tpope/vim-surround'
 "----------------------------------------------------------------------
 Plug 'ntpeters/vim-better-whitespace'
 
+" 只在需要时手动清理，避免逐次输入更新行尾高亮。
+" Markdown 的两个行尾空格可以表示硬换行。
+let g:better_whitespace_enabled = 0
+
 map <leader>t :StripWhitespace<CR>

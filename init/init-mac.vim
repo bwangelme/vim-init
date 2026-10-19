@@ -6,6 +6,7 @@ set guioptions=
 set gcr=a:blinkon0              "Disable cursor blink
 " set gcr+=a:blinkwait500-blinkon600-blinkoff300
 nmap <C-6> <C-^>
+winpos 165 51
 set columns=232
 set lines=50
 " 关闭声音
@@ -42,9 +43,3 @@ imap <D-8> <Esc>:tabn 8<CR>
 imap <D-9> <Esc>:tabn 9<CR>
 " Command-0 goes to the last tab
 imap <D-0> <Esc>:tablast<CR>
-
-set noswapfile
-
-" 文件修改后自动载入
-set autoread
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
