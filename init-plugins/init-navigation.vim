@@ -42,6 +42,13 @@ let g:nerdtree_tabs_open_on_gui_startup=0
 "----------------------------------------------------------------------
 Plug 'majutsushi/tagbar', {'on': 'TagbarToggle'}
 
+" MacVim 从 Finder 启动时 PATH 可能没有 Homebrew，避免误用系统 BSD ctags。
+if executable('/opt/homebrew/bin/ctags')
+    let g:tagbar_ctags_bin = '/opt/homebrew/bin/ctags'
+elseif executable('/usr/local/bin/ctags')
+    let g:tagbar_ctags_bin = '/usr/local/bin/ctags'
+endif
+
 nmap <F8> :TagbarToggle<CR>
 let g:tagbar_width = 54
 let g:tagbar_sort = 0
