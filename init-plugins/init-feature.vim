@@ -18,7 +18,15 @@ let g:vimwiki_global_ext = 0
 let g:vimwiki_url_maxsave = 0
 let g:vimwiki_dir_link = 'README'
 let g:vimwiki_list = [{'path': '~/vimwiki/',
-                    \ 'syntax': 'markdown', 'ext': '.md'}]
+                    \ 'syntax': 'markdown', 'ext': '.md',
+                    \ 'nested_syntaxes': {
+                    \   'bash': 'sh', 'sh': 'sh', 'shell': 'sh',
+                    \   'python': 'python', 'py': 'python', 'go': 'go',
+                    \   'javascript': 'javascript', 'js': 'javascript',
+                    \   'typescript': 'typescript', 'ts': 'typescript',
+                    \   'json': 'json', 'yaml': 'yaml', 'yml': 'yaml',
+                    \   'sql': 'sql', 'lua': 'lua', 'vim': 'vim',
+                    \   'html': 'html', 'css': 'css'}}]
 
 
 "----------------------------------------------------------------------
@@ -30,4 +38,4 @@ Plug 'yianwillis/vimcdoc'
 "----------------------------------------------------------------------
 " thrift
 "----------------------------------------------------------------------
-Plug 'solarnz/thrift.vim'
+" 当前用途无需 Thrift 开发插件。

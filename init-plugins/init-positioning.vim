@@ -24,8 +24,6 @@ nnoremap <silent> <Leader>l  :Buffers<CR>
 nnoremap <leader>m :Maps<CR>
 nnoremap <silent> <Leader><Enter>        :BLines<CR>
 nnoremap <leader>c :Commits<CR>
-nnoremap <leader>h :BTags<CR>
-xnoremap <silent> <Leader>h y:BTags <C-R>"<CR>
 
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -34,17 +32,17 @@ let g:fzf_action = {
 let g:fzf_layout = { 'window': '30split enew', 'down': '~40%' }
 
 " 快速打开某个位置的文件
-nmap <leader>s :Files ~/work/Douban/code/dae-scripts<CR>
-nmap <leader>e :Files ~/work/Douban/workNote/<CR>
+nmap <leader>e :Files ~/vimwiki/<CR>
+nmap <leader>0 :e ~/tmp/abc.md<CR>
 
 " 快速切到某个目录
-nmap <leader>d :cd ~/work/Douban/workNote/<CR>
+" nmap <leader>d :cd ~/work/Douban/workNote/<CR>
 
-nmap <leader>g :call fzf#run({
-    \ 'source': 'ls -1',
-    \ 'dir': '~/work/Douban/code',
-    \ 'sink': 'lcd',
-    \ })<CR>
+" nmap <leader>g :call fzf#run({
+"    \ 'source': 'ls -1',
+"    \ 'dir': '~/work/Douban/code',
+"    \ 'sink': 'lcd',
+"    \ })<CR>
 
 
 "----------------------------------------------------------------------

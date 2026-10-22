@@ -10,12 +10,6 @@
 " 显示设置
 "----------------------------------------------------------------------
 
-" 设置启动时的位置
-if has("gui_running")
-    winpos 165 51
-    set lines=43 columns=201
-endif
-
 " 总是显示行号
 set number
 
@@ -67,14 +61,14 @@ if has("gui_running")
     colorscheme seoul256
 else
     set background=dark
-    " colorscheme zellner
+    colorscheme desert
     " colorscheme gruvbox
-    colorscheme seoul256
+    " colorscheme seoul256
 endif
+
 
 " 允许 256 色
 set t_Co=256
-
 
 "----------------------------------------------------------------------
 " 状态栏设置
@@ -133,7 +127,7 @@ if has('gui_running')
     hi! SpellBad gui=undercurl guisp=red
     hi! SpellCap gui=undercurl guisp=blue
     hi! SpellRare gui=undercurl guisp=magenta
-    hi! SpellRare gui=undercurl guisp=cyan
+    hi! SpellLocal gui=undercurl guisp=cyan
 else
     hi! SpellBad term=standout ctermfg=1 term=underline cterm=underline
     hi! SpellCap term=underline cterm=underline
@@ -145,12 +139,15 @@ endif
 hi! SignColumn guibg=NONE ctermbg=NONE
 
 " 修改行号为浅灰色，默认主题的黄色行号很难看，换主题可以仿照修改
-highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE 
-    \ gui=NONE guifg=DarkGrey guibg=NONE
+highlight LineNr term=bold cterm=NONE ctermfg=DarkGrey ctermbg=NONE gui=NONE guifg=DarkGrey guibg=NONE
 
 " 修正补全目录的色彩：默认太难看
 hi! Pmenu guibg=gray guifg=black ctermbg=gray ctermfg=black
 hi! PmenuSel guibg=gray guifg=brown ctermbg=brown ctermfg=gray
+
+" 修改搜索高亮
+hi! Search      cterm=NONE ctermfg=yellow ctermbg=green
+hi! IncSearch   cterm=NONE ctermfg=yellow ctermbg=red
 
 
 "----------------------------------------------------------------------

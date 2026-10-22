@@ -1,4 +1,19 @@
 "----------------------------------------------------------------------
+" Markdown 代码块：使用 Vim 自带的语法文件，不额外安装高亮插件。
+" 代码围栏需要标注语言，例如 ```python、```json、```bash。
+"----------------------------------------------------------------------
+let g:markdown_fenced_languages = [
+            \ 'bash=sh', 'sh', 'shell=sh', 'python', 'py=python', 'go',
+            \ 'javascript', 'js=javascript', 'typescript', 'ts=typescript',
+            \ 'json', 'yaml', 'yml=yaml', 'sql', 'lua', 'vim', 'html', 'css']
+
+" 禁用内置 Markdown 对单词中间下划线的错误提示（如 finance_balance_new）。
+augroup VimInitMarkdownHighlight
+    autocmd!
+    autocmd Syntax markdown silent! syntax clear markdownError
+augroup END
+
+"----------------------------------------------------------------------
 " vim-markdown
 "----------------------------------------------------------------------
 " Plug 'plasticboy/vim-markdown', {'for': 'markdown.mkd'} 这个插件导致编辑 markdown 文件时出现卡顿，先注释掉
@@ -8,7 +23,7 @@
 "----------------------------------------------------------------------
 Plug 'jkramer/vim-checkbox'
 
-map <silent> <C-space> :call checkbox#ToggleCB()<CR>
+nnoremap <silent> <C-space> :ToggleCB<CR>
 let g:checkbox_states = [' ', 'X']
 
 "----------------------------------------------------------------------

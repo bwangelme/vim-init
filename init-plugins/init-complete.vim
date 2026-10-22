@@ -1,43 +1,30 @@
-"----------------------------------------------------------------------
-" 代码片段快速插入, ultisnips
-"----------------------------------------------------------------------
+" 保留文档片段（tto、date 等），首次输入或编辑片段时才初始化 Python。
+Plug 'SirVer/ultisnips', {'on': 'UltiSnipsEdit'}
 
-Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<c-j>"
+let g:UltiSnipsJumpBackwardTrigger = "<c-k>"
+" 单一绝对目录可避免遍历所有插件的片段目录。
+let g:UltiSnipsSnippetDirectories = [expand('~/.vim/vim-init/UltiSnips')]
+nnoremap <leader>n :UltiSnipsEdit<CR>
 
-let g:UltiSnipsExpandTrigger       = "<tab>"
-" 定义存放代码片段的文件夹 .vim/UltiSnips下，使用自定义和默认的，将会的到全局，有冲突的会提示
-let g:UltiSnipsSnippetDirectories = ["~/.vim/vim-init/UltiSnips"]
-" 进入对应filetype的snippets进行编辑
-map <leader>n :UltiSnipsEdit<CR>
+augroup VimInitSnippets
+    autocmd!
+    autocmd InsertEnter * ++once call s:LoadSnippets()
+augroup END
 
-" ctrl+j/k 进行选择
-func! g:JInYCM()
-    if pumvisible()
-        return "\<C-n>"
-    else
-        return "\<c-j>"
-    endif
+" vim-plug 会重放 BufRead；避免恢复历史光标位置影响这次输入。
+function! s:LoadSnippets() abort
+    let l:view = winsaveview()
+    let l:buf = bufnr('%')
+    try
+        call plug#load('ultisnips')
+    finally
+        if bufnr('%') == l:buf
+            call winrestview(l:view)
+        endif
+    endtry
 endfunction
 
-func! g:KInYCM()
-    if pumvisible()
-        return "\<C-p>"
-    else
-        return "\<c-k>"
-    endif
-endfunction
-inoremap <c-j> <c-r>=g:JInYCM()<cr>
-au BufEnter,BufRead * exec "inoremap <silent> " . g:UltiSnipsJumpBackwordTrigger . " <C-R>=g:KInYCM()<cr>"
-let g:UltiSnipsJumpBackwordTrigger = "<c-k>"
-
-
-"----------------------------------------------------------------------
-" 自动补全单引号，双引号等, delimitMate
-"----------------------------------------------------------------------
+" 自动补齐引号、括号，编辑配置文件时仍然有用。
 Plug 'Raimondi/delimitMate'
-
-" for python docstring ",优化输入
-au FileType python let b:delimitMate_nesting_quotes = ['"']
-au FileType php let delimitMate_matchpairs = "(:),[:],{:}"
-" 关闭某些类型文件的自动补全
-au FileType mail let b:delimitMate_autoclose = 0
