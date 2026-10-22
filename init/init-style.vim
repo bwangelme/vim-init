@@ -46,7 +46,12 @@ set cursorline
 set colorcolumn=80
 
 " 设置字体
-set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
+if has('gui_running') && has('win32')
+    " Windows gVim：Sarasa Mono SC / 等距更纱黑体 SC
+    set guifont=等距更纱黑体\ SC:h16
+elseif has('gui_running')
+    set guifont=DejaVuSansMono\ Nerd\ Font\ Mono\ 14
+endif
 
 " 关闭工具栏
 set guioptions=aegimrLt
